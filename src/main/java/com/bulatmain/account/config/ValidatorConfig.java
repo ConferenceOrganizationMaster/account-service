@@ -10,22 +10,22 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ValidatorConfig {
     @Bean
-    EmailValidator emailValidator() {
+    public EmailValidator emailValidator() {
         return new EmailValidator();
     }
 
     @Bean
-    LoginValidator loginValidator() {
+    public LoginValidator loginValidator() {
         return new LoginValidator();
     }
 
     @Bean
-    PasswordValidator passwordValidator() {
+    public PasswordValidator passwordValidator() {
         return new PasswordValidator();
     }
 
     @Bean
-    PhoneValidator phoneValidator() {
+    public PhoneValidator phoneValidator() {
         return new PhoneValidator();
     }
 }

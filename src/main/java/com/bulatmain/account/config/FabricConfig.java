@@ -9,34 +9,34 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class FabricConfig {
     @Bean
-    EmailFabric emailFabric(EmailValidator emailValidator) {
+    public EmailFabric emailFabric(EmailValidator emailValidator) {
         return new EmailFabric(emailValidator);
     }
 
     @Bean
-    LoginFabric loginFabric(LoginValidator loginValidator) {
+    public LoginFabric loginFabric(LoginValidator loginValidator) {
         return new LoginFabric(loginValidator);
     }
 
     @Bean
-    NameFabric nameFabric(NameValidator nameValidator) {
+    public NameFabric nameFabric(NameValidator nameValidator) {
         return new NameFabric(nameValidator);
     }
 
     @Bean
-    PasswordFabric passwordFabric(
+    public PasswordFabric passwordFabric(
             PasswordValidator passwordValidator,
             PasswordEncoder passwordEncoder) {
         return new PasswordFabric(passwordValidator, passwordEncoder);
     }
 
     @Bean
-    PhoneFabric phoneFabric(PhoneValidator phoneValidator) {
+    public PhoneFabric phoneFabric(PhoneValidator phoneValidator) {
         return new PhoneFabric(phoneValidator);
     }
 
     @Bean
-    UserFabric userFabric(
+    public UserFabric userFabric(
             UserIdFabric userIdFabric,
             LoginFabric loginFabric,
             PasswordFabric passwordFabric,
@@ -53,7 +53,7 @@ public class FabricConfig {
     }
 
     @Bean
-    UserDetailFabric userDetailFabric(
+    public UserDetailFabric userDetailFabric(
             NameFabric nameFabric,
             PhoneFabric phoneFabric
     ) {
@@ -64,7 +64,7 @@ public class FabricConfig {
     }
 
     @Bean
-    UserIdFabric userIdFabric(EmailFabric emailFabric) {
+    public UserIdFabric userIdFabric(EmailFabric emailFabric) {
         return new UserIdFabric(emailFabric);
     }
 
