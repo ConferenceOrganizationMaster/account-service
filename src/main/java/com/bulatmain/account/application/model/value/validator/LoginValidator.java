@@ -10,6 +10,9 @@ public class LoginValidator implements StringValidator {
 
     @Override
     public boolean check(String obj) {
+        if (obj == null) {
+            return false;
+        }
         return obj.matches(pattern);
     }
 }
