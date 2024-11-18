@@ -36,6 +36,34 @@ public class FabricConfig {
     }
 
     @Bean
+    UserFabric userFabric(
+            UserIdFabric userIdFabric,
+            LoginFabric loginFabric,
+            PasswordFabric passwordFabric,
+            NameFabric nameFabric,
+            PhoneFabric phoneFabric
+    ) {
+        return new UserFabric(
+                userIdFabric,
+                loginFabric,
+                passwordFabric,
+                nameFabric,
+                phoneFabric
+        );
+    }
+
+    @Bean
+    UserDetailFabric userDetailFabric(
+            NameFabric nameFabric,
+            PhoneFabric phoneFabric
+    ) {
+        return new UserDetailFabric(
+                nameFabric,
+                phoneFabric
+        );
+    }
+
+    @Bean
     UserIdFabric userIdFabric(EmailFabric emailFabric) {
         return new UserIdFabric(emailFabric);
     }
