@@ -4,4 +4,6 @@ import com.bulatmain.account.domain.user.value.UserId;
 
 import java.util.Objects;
 
-public interface Id {}
+public interface Id {
+    String get();
+}

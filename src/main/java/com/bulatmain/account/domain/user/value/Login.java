@@ -1,3 +1,5 @@
 package com.bulatmain.account.domain.user.value;
 
-public interface Login {}
+import com.bulatmain.account.domain.common.value.StringObject;
+
+public interface Login extends StringObject {}
