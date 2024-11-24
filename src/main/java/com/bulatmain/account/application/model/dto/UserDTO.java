@@ -2,8 +2,6 @@ package com.bulatmain.account.application.model.dto;
 
 import com.bulatmain.account.domain.common.value.StringObject;
 import com.bulatmain.account.domain.user.entity.User;
-import com.bulatmain.account.domain.user.value.detail.Name;
-import com.bulatmain.account.domain.user.value.detail.Phone;
 import lombok.Builder;
 import lombok.Data;
 

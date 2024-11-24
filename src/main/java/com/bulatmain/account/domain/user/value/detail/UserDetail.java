@@ -1,3 +1,11 @@
 package com.bulatmain.account.domain.user.value.detail;
 
-public record UserDetail(Name name, Phone phone) {}
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class UserDetail {
+    private Name name;
+    private Phone phone;
+}
