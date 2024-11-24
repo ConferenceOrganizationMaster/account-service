@@ -5,6 +5,8 @@ import com.bulatmain.account.application.model.value.exception.InvalidLoginExcep
 import com.bulatmain.account.application.model.value.exception.InvalidPasswordException;
 import com.bulatmain.account.application.model.value.exception.InvalidUserIdException;
 import com.bulatmain.account.application.model.value.fabric.UserFabric;
+import com.bulatmain.account.application.port.event.UserRegisteredEvent;
+import com.bulatmain.account.application.port.gateway.EventPublisher;
 import com.bulatmain.account.application.port.gateway.UserGateway;
 import com.bulatmain.account.application.port.request.RegisterUserRequest;
 import com.bulatmain.account.application.usecase.RegisterUserUC;
@@ -16,6 +18,7 @@ import lombok.AllArgsConstructor;
 public class RegisterUserUCImpl implements RegisterUserUC {
     private final UserGateway userGateway;
     private final UserFabric userFabric;
+    private final EventPublisher eventPublisher;
     @Override
     public Id execute(RegisterUserRequest request)
             throws UserAlreadyExistsException, InvalidUserIdException, InvalidLoginException, InvalidPasswordException {
@@ -28,6 +31,9 @@ public class RegisterUserUCImpl implements RegisterUserUC {
                 request.getPassword()
         );
         var userDTO = UserDTO.fromEntity(user);
+        eventPublisher.publish(new UserRegisteredEvent(
+                userDTO.getId()
+        ));
         return () -> userGateway.save(userDTO);
     }
 }
