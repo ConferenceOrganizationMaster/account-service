@@ -1,4 +1,4 @@
-package com.bulatmain.account.config;
+package com.bulatmain.account.config.infrastructure.repository;
 
 import com.bulatmain.account.application.port.gateway.UserGateway;
 import com.bulatmain.account.infrastructure.repository.UserRepository;

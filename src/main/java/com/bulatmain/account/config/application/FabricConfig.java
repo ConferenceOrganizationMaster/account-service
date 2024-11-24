@@ -1,4 +1,4 @@
-package com.bulatmain.account.config;
+package com.bulatmain.account.config.application;
 
 import com.bulatmain.account.application.model.value.fabric.*;
 import com.bulatmain.account.application.model.value.validator.*;
