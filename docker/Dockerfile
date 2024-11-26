@@ -1,6 +1,7 @@
 # build stage
 FROM maven:3.8.5-openjdk-17 as maven
 ENV SPRING_PROFILES_ACTIVE=production
+
 # copy the project files
 COPY ./pom.xml ./pom.xml
 # build all dependencies
@@ -8,7 +9,9 @@ RUN mvn dependency:go-offline -B
 # copy your other files
 COPY ./src ./src
 # build for release
-RUN mvn package
+RUN mvn avro:schema
+RUN mvn build-helper:add-source
+RUN mvn package -DskipTests
 
 # package stage
 FROM eclipse-temurin:17-jre-jammy
