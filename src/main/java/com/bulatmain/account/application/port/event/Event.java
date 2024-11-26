@@ -1,3 +1,5 @@
 package com.bulatmain.account.application.port.event;
 
-public interface Event {}
+public interface Event {
+    String getRecord();
+}
